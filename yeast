@@ -1,0 +1,38 @@
+#! /usr/bin/env bash
+
+# YEAST // command programmed by shebangcode
+# https://youtube.com/@ShebangCodeTeachesYou
+
+showhelp() {
+	echo "
+Yeast Options.
+
+	-h: Shows this help message
+	-a <text>: Searches for hidden files
+	-r <text>: Searches recursively in directories for files
+	"
+}
+
+while getopts 'ha:r:' OPTION; do
+	case "$OPTION" in
+		h)
+			showhelp
+			exit 0;;
+		a)
+			dvalue="$OPTARG"
+			ls -a | grep "$OPTARG"
+			exit 0;;
+		r)
+			dvalue="$OPTARG"
+			ls -R | grep "$OPTARG"
+			exit 0;;
+
+	esac
+
+done
+
+if [ -z "$1" ]; then
+	echo "yeast: You must pass text for basic file search."
+	exit 1
+fi
+ls | grep "$1"
