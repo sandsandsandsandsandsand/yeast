@@ -1,6 +1,6 @@
 # How to install and use yeast.
 
-To use reast, clone this repo by doing:
+To use yeast, clone this repo by doing:
 
 `git clone https://github.com/sandsandsandsandsandsand/yeast`
 
