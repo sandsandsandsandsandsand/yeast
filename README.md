@@ -1,6 +1,6 @@
 # How to install yeast.
 
-![](file:///run/arc/sdcard/write/emulated/0/Pictures/Sans%20titre%20206_20230406211657.png)
+![](https://user-images.githubusercontent.com/94982718/230476773-eafbe948-ef00-4543-907e-e0939a26c653.png)
 
 First, you want to make sure that `grep` is installed on your system:
 
