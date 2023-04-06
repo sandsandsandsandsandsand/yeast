@@ -1,5 +1,7 @@
 # How to install yeast.
 
+![](file:///run/arc/sdcard/write/emulated/0/Pictures/Sans%20titre%20206_20230406211657.png)
+
 First, you want to make sure that `grep` is installed on your system:
 
 `sudo apt-get install grep` for Debian-based distros
