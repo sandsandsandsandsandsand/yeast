@@ -1,6 +1,11 @@
-# How to install and use yeast.
+# How to install yeast.
 
-To use yeast, clone this repo by doing:
+First, you want to make sure that `grep` is installed on your system:
+
+`sudo apt-get install grep` for Debian-based distros
+`sudo pacman -S grep` for Arch Linux
+
+To install yeast, clone this repo by doing:
 
 `git -C ~ clone https://github.com/shebangcode/yeast`
 
