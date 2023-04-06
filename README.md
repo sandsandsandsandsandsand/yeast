@@ -6,6 +6,8 @@ First, you want to make sure that `grep` is installed on your system:
 
 `sudo pacman -S grep` for Arch Linux
 
+`brew install grep` for MacOS
+
 To install yeast, clone this repo by doing:
 
 `git -C ~ clone https://github.com/shebangcode/yeast`
