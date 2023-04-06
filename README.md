@@ -2,7 +2,7 @@
 
 To use yeast, clone this repo by doing:
 
-`git -C ~ clone https://github.com/sandsandsandsandsandsand/yeast`
+`git -C ~ clone https://github.com/shebangcode/yeast`
 
 Then, you want to go into the yeast directory:
 
