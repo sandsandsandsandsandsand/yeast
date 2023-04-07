@@ -5,34 +5,59 @@
 
 showhelp() {
 	echo "
-Yeast Options.
 
-	-h: Shows this help message
-	-a <text>: Searches for hidden files
-	-r <text>: Searches recursively in directories for files
+	 __    __   ____    ______    ____    ________
+	 \\ \\  / /  / __ \\  /  __  \\  /  _ \\  |___  ___|
+	  \\ \\/ /  / /__\\ \\ |_|  | |  \\ \\ \\/     |  |
+	   \\  /   | _____/    _/  |   \\ \\       |  |
+	   / /    | |   __  _/ ∕| \\    \\ \\      |  |
+	  / /     \\ \\__/ / |  |_|  \\ /\\_\\ \\     |  |
+	 /_/       \\____/  \\_____/\\/ \\____/     |__|
+
+	Light ack-based file searcher.
+
+	Options.
+
+	      -h ........... Shows this help message.
+	-a <text> .......... Searches for hidden and normal files.                            
+	-r <text> .......... Searches recursively in directories for files.                   
+	-z <text> .......... Searches recursively in directories for hidden and normal files. 
+
+
 	"
 }
 
-while getopts 'ha:r:' OPTION; do
+while getopts 'ha:r:z:' OPTION; do
 	case "$OPTION" in
 		h)
 			showhelp
 			exit 0;;
 		a)
 			dvalue="$OPTARG"
-			ls -a | grep "$OPTARG"
-			exit 0;;
+			ls -a | ack "$OPTARG"
+			if [ -z "$OPTARG" ]; then
+				echo "yeast: You must pass text for hidden file search."
+				exit 1
+			fi;;
 		r)
 			dvalue="$OPTARG"
-			ls -R | grep "$OPTARG"
-			exit 0;;
-
+			ls -R | ack "$OPTARG"
+			if [ -z "$OPTARG" ]; then
+				echo "yeast: You must pass text for recursive file search."
+				exit 1
+			fi;;
+		z)
+			dvalue="$OPTARG"
+			ls -Ra | ack "$OPTARG"
+			if [ -z "$OPTARG" ]; then
+				echo "yeast: You must pass text for recursive hidden file search."
+				exit 1
+			fi;;
 	esac
-
 done
 
 if [ -z "$1" ]; then
 	echo "yeast: You must pass text for basic file search."
 	exit 1
 fi
-ls | grep "$1"
+ls | ack "$1"
