@@ -2,13 +2,13 @@
 
 ![](https://user-images.githubusercontent.com/94982718/230476773-eafbe948-ef00-4543-907e-e0939a26c653.png)
 
-First, you want to make sure that `grep` is installed on your system:
+First, you want to make sure that `ack` is installed on your system:
 
-`sudo apt-get install grep` for Debian-based distros
+`sudo apt-get install ack` for Debian-based distros
 
-`sudo pacman -S grep` for Arch Linux
+`sudo pacman -S ack` for Arch Linux
 
-`brew install grep` for MacOS
+`brew install ack` for MacOS
 
 To install yeast, clone this repo by doing:
 
@@ -29,6 +29,8 @@ Here is a list of the flags:
 
 `-h`: Shows all the flags
 
-`-a`: Searches also hidden files
+`-a`: Searches for hidden and normal files
 
-`-r`: Searches recursively in the directories
+`-r`: Searches recursively in directories for files
+
+`-z`: Searches recursively in directories for hidden and normal files
