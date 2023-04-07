@@ -34,3 +34,5 @@ Here is a list of the flags:
 `-r`: Searches recursively in directories for files
 
 `-z`: Searches recursively in directories for hidden and normal files
+
+Here is the official ack website, if you want to check it out: https://beyondgrep.com
