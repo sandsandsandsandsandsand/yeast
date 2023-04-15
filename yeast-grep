@@ -1,0 +1,63 @@
+#! /usr/bin/env bash
+
+# YEAST // command programmed by shebangcode
+# https://youtube.com/@ShebangCodeTeachesYou
+
+showhelp() {
+	echo "
+
+	 __    __   ____    ______    ____    ________
+	 \\ \\  / /  / __ \\  /  __  \\  /  _ \\  |___  ___|
+	  \\ \\/ /  / /__\\ \\ |_|  | |  \\ \\ \\/     |  |
+	   \\  /   | _____/    _/  |   \\ \\       |  |
+	   / /    | |   __  _/ ∕| \\    \\ \\      |  |
+	  / /     \\ \\__/ / |  |_|  \\ /\\_\\ \\     |  |
+	 /_/       \\____/  \\_____/\\/ \\____/     |__|
+
+	 Light grep-based file searcher (forked) .
+
+	Options.
+
+	      -h ........... Shows this help message.
+	-a <text> .......... Searches for hidden and normal files.                            
+	-r <text> .......... Searches recursively in directories for files.                   
+	-z <text> .......... Searches recursively in directories for hidden and normal files. 
+
+
+	"
+}
+
+while getopts 'ha:r:z:' OPTION; do
+	case "$OPTION" in
+		h)
+			showhelp
+			exit 0;;
+		a)
+			dvalue="$OPTARG"
+			sudo ls -a | sudo grep "$OPTARG"
+			if [ -z "$OPTARG" ]; then
+				echo "yeast: You must pass text for hidden file search."
+				exit 1
+			fi;;
+		r)
+			dvalue="$OPTARG"
+			sudo ls -R | sudo grep "$OPTARG"
+			if [ -z "$OPTARG" ]; then
+				echo "yeast: You must pass text for recursive file search."
+				exit 1
+			fi;;
+		z)
+			dvalue="$OPTARG"
+			sudo ls -Ra | sudo grep "$OPTARG"
+			if [ -z "$OPTARG" ]; then
+				echo "yeast: You must pass text for recursive hidden file search."
+				exit 1
+			fi;;
+	esac
+done
+
+if [ -z "$1" ]; then
+	echo "yeast: You must pass text for basic file search."
+	exit 1
+fi
+sudo ls | sudo grep "$1"
