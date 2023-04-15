@@ -14,7 +14,7 @@ showhelp() {
 	  / /     \\ \\__/ / |  |_|  \\ /\\_\\ \\     |  |
 	 /_/       \\____/  \\_____/\\/ \\____/     |__|
 
-	 Light grep-based file searcher (forked) .
+	 Light ack-based file searcher (grep version).
 
 	Options.
 
