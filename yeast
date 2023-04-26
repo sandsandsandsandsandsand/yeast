@@ -6,15 +6,27 @@
 showhelp() {
 	echo "
 
-	 __    __   ____    ______    ____    ________
-	 \\ \\  / /  / __ \\  /  __  \\  /  _ \\  |___  ___|
-	  \\ \\/ /  / /__\\ \\ |_|  | |  \\ \\ \\/     |  |
-	   \\  /   | _____/    _/  |   \\ \\       |  |
-	   / /    | |   __  _/ ∕| \\    \\ \\      |  |
-	  / /     \\ \\__/ / |  |_|  \\ /\\_\\ \\     |  |
-	 /_/       \\____/  \\_____/\\/ \\____/     |__|
 
-	Light ack-based file searcher.
+                                                                                       kOOOO.
+                                                                                      oMMMMW
+               :oooo'    .ooooo.    .cdkKKKkd:        ,lxkKKKOkl.      'cdk0KK0kd,    NMMMMWoooooooo;
+              'MMMMMl    oMMMMM.  :KMMMMMMMMMMNl    lNMMMMMMMMMMWk   :XMMMMMMMMMMMN, ,MMMMMMMMMMMMMMO
+              oMMMMM.    XMMMMK .XMMMMNkooOMMMMMc  KMMMMXdccOMMMMM; oMMMMWocclWMMMMX kMMMMWooooooooo.
+              XMMMM0    .MMMMM;.NMMMMN:''''NMMMMx .ddxkO,':cOMMMMM, xMMMMMkoc,cdlll; NMMMMx   'OOOOl
+             'MMMMM,    oMMMMN oMMMMMMMMMMMMMMMMx .cxXWMMMMMMMMMMW   dWMMMMMMMMWKo. ,MMMMM.   OMMMMl
+             oMMMMN     NMMMMd OMMMMXkkkkkkkkkkk':WMMMMWKkddMMMMMx    .:dOXWMMMMMMW kMMMM0   .WMMMM.
+             KMMMMK...'kMMMMM' xMMMMX.   'kOOOO. WMMMMO.  .OMMMMM.'WWWWN'   .KMMMMM'XMMMMO..'0MMMMk
+             xMMMMMMMMMMMMMMN  .WMMMMMXKWMMMMWo  MMMMMNOOXMMMMMMK .MMMMMMKKKXMMMMWo xMMMMMMMMMMMMO
+              lXMMMMMMXMMMMMx   .dNMMMMMMMMKo.   lNMMMMMMMXWMMMMc  'kNMMMMMMMMMXd.   lXMMMMMMMWk,
+           .0KKKNl''..lMMMMM.      .,::::'.        ';:::,. .''''      .,::::;'.        .;:::;.
+           .MMMMMO:,cOMMMMMo
+            dWMMMMMMMMMMMO,
+             .xXWMMMMN0o'
+                 ....
+
+
+
+	 Light ack-based file searcher.
 
 	Options.
 
@@ -34,21 +46,21 @@ while getopts 'ha:r:z:' OPTION; do
 			exit 0;;
 		a)
 			dvalue="$OPTARG"
-			ls -a | ack "$OPTARG"
+			sudo ls -a | sudo grep "$OPTARG"
 			if [ -z "$OPTARG" ]; then
 				echo "yeast: You must pass text for hidden file search."
 				exit 1
 			fi;;
 		r)
 			dvalue="$OPTARG"
-			ls -R | ack "$OPTARG"
+			sudo ls --tree | sudo grep "$OPTARG"
 			if [ -z "$OPTARG" ]; then
 				echo "yeast: You must pass text for recursive file search."
 				exit 1
 			fi;;
 		z)
 			dvalue="$OPTARG"
-			ls -Ra | ack "$OPTARG"
+			sudo ls --tree -a | sudo grep "$OPTARG"
 			if [ -z "$OPTARG" ]; then
 				echo "yeast: You must pass text for recursive hidden file search."
 				exit 1
@@ -60,4 +72,4 @@ if [ -z "$1" ]; then
 	echo "yeast: You must pass text for basic file search."
 	exit 1
 fi
-ls | ack "$1"
+sudo ls | sudo grep "$1"

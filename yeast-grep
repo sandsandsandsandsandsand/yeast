@@ -6,15 +6,27 @@
 showhelp() {
 	echo "
 
-	 __    __   ____    ______    ____    ________
-	 \\ \\  / /  / __ \\  /  __  \\  /  _ \\  |___  ___|
-	  \\ \\/ /  / /__\\ \\ |_|  | |  \\ \\ \\/     |  |
-	   \\  /   | _____/    _/  |   \\ \\       |  |
-	   / /    | |   __  _/ ∕| \\    \\ \\      |  |
-	  / /     \\ \\__/ / |  |_|  \\ /\\_\\ \\     |  |
-	 /_/       \\____/  \\_____/\\/ \\____/     |__|
 
-	 Light ack-based file searcher (grep version).
+                                                                                       kOOOO.
+                                                                                      oMMMMW
+               :oooo'    .ooooo.    .cdkKKKkd:        ,lxkKKKOkl.      'cdk0KK0kd,    NMMMMWoooooooo;
+              'MMMMMl    oMMMMM.  :KMMMMMMMMMMNl    lNMMMMMMMMMMWk   :XMMMMMMMMMMMN, ,MMMMMMMMMMMMMMO
+              oMMMMM.    XMMMMK .XMMMMNkooOMMMMMc  KMMMMXdccOMMMMM; oMMMMWocclWMMMMX kMMMMWooooooooo.
+              XMMMM0    .MMMMM;.NMMMMN:''''NMMMMx .ddxkO,':cOMMMMM, xMMMMMkoc,cdlll; NMMMMx   'OOOOl
+             'MMMMM,    oMMMMN oMMMMMMMMMMMMMMMMx .cxXWMMMMMMMMMMW   dWMMMMMMMMWKo. ,MMMMM.   OMMMMl
+             oMMMMN     NMMMMd OMMMMXkkkkkkkkkkk':WMMMMWKkddMMMMMx    .:dOXWMMMMMMW kMMMM0   .WMMMM.
+             KMMMMK...'kMMMMM' xMMMMX.   'kOOOO. WMMMMO.  .OMMMMM.'WWWWN'   .KMMMMM'XMMMMO..'0MMMMk
+             xMMMMMMMMMMMMMMN  .WMMMMMXKWMMMMWo  MMMMMNOOXMMMMMMK .MMMMMMKKKXMMMMWo xMMMMMMMMMMMMO
+              lXMMMMMMXMMMMMx   .dNMMMMMMMMKo.   lNMMMMMMMXWMMMMc  'kNMMMMMMMMMXd.   lXMMMMMMMWk,
+           .0KKKNl''..lMMMMM.      .,::::'.        ';:::,. .''''      .,::::;'.        .;:::;.
+           .MMMMMO:,cOMMMMMo
+            dWMMMMMMMMMMMO,
+             .xXWMMMMN0o'
+                 ....
+
+
+
+	 Light grep-based file searcher.
 
 	Options.
 
@@ -41,14 +53,14 @@ while getopts 'ha:r:z:' OPTION; do
 			fi;;
 		r)
 			dvalue="$OPTARG"
-			sudo ls -R | sudo grep "$OPTARG"
+			sudo ls --tree | sudo grep "$OPTARG"
 			if [ -z "$OPTARG" ]; then
 				echo "yeast: You must pass text for recursive file search."
 				exit 1
 			fi;;
 		z)
 			dvalue="$OPTARG"
-			sudo ls -Ra | sudo grep "$OPTARG"
+			sudo ls --tree -a | sudo grep "$OPTARG"
 			if [ -z "$OPTARG" ]; then
 				echo "yeast: You must pass text for recursive hidden file search."
 				exit 1
