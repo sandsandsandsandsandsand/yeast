@@ -53,14 +53,14 @@ while getopts 'ha:r:z:' OPTION; do
 			fi;;
 		r)
 			dvalue="$OPTARG"
-			sudo ls --tree | sudo grep "$OPTARG"
+			sudo ls -R | sudo grep "$OPTARG"
 			if [ -z "$OPTARG" ]; then
 				echo "yeast: You must pass text for recursive file search."
 				exit 1
 			fi;;
 		z)
 			dvalue="$OPTARG"
-			sudo ls --tree -a | sudo grep "$OPTARG"
+			sudo ls -R -a | sudo grep "$OPTARG"
 			if [ -z "$OPTARG" ]; then
 				echo "yeast: You must pass text for recursive hidden file search."
 				exit 1
